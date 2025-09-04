@@ -1,34 +1,64 @@
 body {
-    font-family: 'Cairo', sans-serif;
-    background-color: #f8f9fa;
-    direction: rtl;
-    text-align: right;
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #333;
+}
+
+header {
+  background: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo img {
+  height: 50px;
+  margin-left: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
 }
 
 .card {
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-radius: 15px;
-    overflow: hidden;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
 }
 
-.card-title {
-    color: #0D47A1;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
 
-.card-text {
-    color: #333;
-    font-size: 0.95rem;
+.card h3 {
+  margin: 10px;
+  font-size: 18px;
+  color: #007bff;
 }
 
-#searchInput {
-    border-radius: 10px;
-    padding: 12px;
-    font-size: 1rem;
+.articles {
+  padding: 20px;
+}
+
+article {
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
 }
