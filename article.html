@@ -1,23 +1,95 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مقال</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مقال طبي</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="static/js/data.js"></script>
+  <style>
+    .article-content {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      line-height: 2;
+      font-size: 1.1rem;
+    }
+    .article-header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #003399;
+    }
+    .article-meta {
+      text-align: center;
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+    .read-status {
+      text-align: center;
+      margin: 20px 0;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="Pharmacy Logo"></a>
-      <h1 id="article-title"></h1>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <img src="static/images/logo.png" alt="الشعار" class="logo" />
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="categories.html">التصنيفات</a></li>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <article id="article-content"></article>
-  </main>
+  <!-- Article Page -->
+  <section class="article-page">
+    <div class="container">
+      <div class="article-content" id="article-content">
+        <div class="article-header">
+          <h1 id="article-title">جارٍ التحميل...</h1>
+          <div class="article-meta">
+            <span>تاريخ النشر: 15 مارس 2025</span> | <span id="read-time">0</span> دقيقة للقراءة
+          </div>
+        </div>
+        <div id="article-body"></div>
+        <div class="read-status">
+          <a href="#" class="btn">قرأتها</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 مكتبة الفيديوهات الصيدلانية. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = parseInt(urlParams.get('id')) || 1;
+
+    let foundArticle = null;
+    window.categoriesData.categories.forEach(cat => {
+      cat.articles?.forEach(art => {
+        if (art.id === articleId) foundArticle = art;
+      });
+    });
+
+    if (foundArticle) {
+      document.getElementById('article-title').textContent = foundArticle.title;
+      document.getElementById('read-time').textContent = foundArticle.read_time;
+      document.getElementById('article-body').innerHTML = `<p>${foundArticle.content.replace(/\r\n/g, '</p><p>')}</p>`;
+    }
+  </script>
 </body>
 </html>
