@@ -1,24 +1,79 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الأقسام</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>التصنيفات - مكتبة الفيديوهات الصيدلانية</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="Pharmacy Logo"></a>
-      <h1 id="category-name"></h1>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <img src="static/images/logo.png" alt="الشعار" class="logo" />
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="categories.html" class="active">التصنيفات</a></li>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <section id="videos" class="grid"></section>
-    <section id="articles" class="articles"></section>
-  </main>
+  <!-- Categories Page -->
+  <section class="categories-page">
+    <div class="container">
+      <h2>اختر التصنيف المطلوب</h2>
+      <p style="text-align: center; margin-bottom: 40px; color: #555;">
+        تصفح الفئات التعليمية واختر ما يناسبك
+      </p>
+      <div class="cards">
+        <div class="card">
+          <img src="static/images/categories/acidity.jpg" alt="الحموضة" />
+          <h3>الحموضة</h3>
+          <p>شرح مفصل لأسباب الحموضة وطرق العلاج</p>
+          <div class="card-footer">
+            <span>85 طالب مشاهد</span>
+            <a href="category-detail.html?id=1" class="btn btn-outline">استكشف</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="static/images/categories/vit.jpg" alt="الفيتامينات" />
+          <h3>الفيتامينات</h3>
+          <p>تعرف على أنواع الفيتامينات وأهميتها</p>
+          <div class="card-footer">
+            <span>120 طالب مشاهد</span>
+            <a href="category-detail.html?id=2" class="btn btn-outline">استكشف</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="static/images/categories/omega3.jpg" alt="أوميغا 3" />
+          <h3>أوميغا 3</h3>
+          <p>فوائد أوميغا 3 وطريقة اختيار المكمل المناسب</p>
+          <div class="card-footer">
+            <span>98 طالب مشاهد</span>
+            <a href="category-detail.html?id=13" class="btn btn-outline">استكشف</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="static/images/categories/knuz.jpg" alt="كنوز الصيدلية" />
+          <h3>كنوز الصيدلية</h3>
+          <p>أدوية ممتازة لكن غير معروفة</p>
+          <div class="card-footer">
+            <span>76 طالب مشاهد</span>
+            <a href="category-detail.html?id=14" class="btn btn-outline">استكشف</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 مكتبة الفيديوهات الصيدلانية. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
 </body>
 </html>
